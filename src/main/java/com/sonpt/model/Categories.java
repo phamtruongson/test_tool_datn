@@ -8,21 +8,22 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "sub_category")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SubCategories implements Serializable {
+@Table(name = "category")
+@Entity
+public class Categories implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-    @Column(name = "sub_cate_code")
-    private String subCateCode;
-    @Column(name = "sub_cate_name")
-    private String subCateName;
-    @Column(name = "cate_id")
-    private Long cateId;
+
+    @Column(name = "cate_code")
+    private String cateCode;
+
+    @Column(name = "cate_name")
+    private String cateName;
+
+
 }

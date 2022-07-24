@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 @Repository
 public interface SubCategoryReponseRepository extends JpaRepository<SubCategoryResponse, Long> {
     @Query(value = "select sub_category.id as id, sub_category.sub_cate_code, category.cate_name from " +
-            "sub_category inner join category on sub_category.cate_id = category.id",nativeQuery = true)
+            " sub_category inner join category on sub_category.cate_id = category.id",nativeQuery = true,
+            countQuery = "select count(*) from sub_category inner join category on sub_category.cate_id = category.id")
     Page<SubCategoryResponse> getAll(Pageable pageable);
 }
